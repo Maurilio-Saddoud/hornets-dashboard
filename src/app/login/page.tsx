@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useRouter } from 'next/navigation';
 import { HORNETS_COLORS } from '@/constants/dashboardConstants';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const { user, isLoading } = useUser();
@@ -38,13 +39,13 @@ export default function LoginPage() {
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 border-t-4" 
              style={{ borderColor: HORNETS_COLORS.TEAL }}>
           <div className="space-y-6">
-            <a 
+            <Link 
               href="/api/auth/login"
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white"
               style={{ backgroundColor: HORNETS_COLORS.TEAL }}
             >
               Sign in with Auth0
-            </a>
+            </Link>
           </div>
         </div>
       </div>

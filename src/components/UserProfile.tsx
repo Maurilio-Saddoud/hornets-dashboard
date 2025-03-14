@@ -28,12 +28,12 @@ export default function UserProfile() {
               />
             </div>
           )}
-          <a 
+          <Link 
             href="/api/auth/logout"
-            className="text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
+            className="text-sm text-gray-700 hover:text-gray-900"
           >
             Logout
-          </a>
+          </Link>
         </div>
       ) : (
         <Link 

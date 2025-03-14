@@ -168,20 +168,23 @@ const PlayerSelector = ({ onSelectPlayer }: PlayerSelectorProps) => {
   // Handle player selection
   React.useEffect(() => {
     if (!api || players.length === 0) return;
- 
-    // Set initial player
+    
+    // Set initial player when component mounts
     const initialIndex = api.selectedScrollSnap();
     onSelectPlayer(players[initialIndex]);
- 
-    // Listen for selection changes
-    api.on("select", () => {
+    
+    // Store the callback function in a variable so we can reference it for cleanup
+    const handleSelect = () => {
       const index = api.selectedScrollSnap();
       onSelectPlayer(players[index]);
-    });
+    };
     
-    // Cleanup listener on unmount
+    // Add the event listener
+    api.on("select", handleSelect);
+    
+    // Cleanup listener on unmount with the same callback reference
     return () => {
-      api.off("select");
+      api.off("select", handleSelect);
     };
   }, [api, onSelectPlayer, players]);
 
