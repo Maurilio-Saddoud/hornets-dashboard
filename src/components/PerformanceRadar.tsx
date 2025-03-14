@@ -3,7 +3,6 @@
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts';
 import { Player } from '@/types/player';
 import playerAttributes from '@/data/playerAttributes.json';
-import Image from 'next/image';
 import { HORNETS_COLORS } from '@/constants/dashboardConstants';
 import { HornetsCard } from '@/components/ui/hornets-card';
 

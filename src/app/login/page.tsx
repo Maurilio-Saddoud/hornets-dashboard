@@ -1,13 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import { HORNETS_COLORS } from '@/constants/dashboardConstants';
 
 export default function LoginPage() {
-  const [error, setError] = useState('');
   const { user, isLoading } = useUser();
   const router = useRouter();
   
@@ -39,12 +37,6 @@ export default function LoginPage() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 border-t-4" 
              style={{ borderColor: HORNETS_COLORS.TEAL }}>
-          {error && (
-            <div className="mb-4 bg-red-50 border-l-4 border-red-400 p-4 text-red-700">
-              <p>{error}</p>
-            </div>
-          )}
-          
           <div className="space-y-6">
             <a 
               href="/api/auth/login"
